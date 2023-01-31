@@ -1,0 +1,559 @@
+html {
+    font-size: 62.5%; /* 1REM = 10PX */
+}
+body {
+    font-family: 'Raleway', sans-serif;
+    font-size: 1.6rem;
+    line-height: 1.5;
+}
+
+h1, h2, h3 {
+    font-family: 'Playfair Display', serif;
+}  
+
+h1 {                                            /* en este H1 aplicamos el MOBILE FIRST */
+    font-size: 4rem;
+}
+
+@media (min-width: 768px) { 
+    h1 {                                    /* los MEDIA QUERYS recomendable van  inmediatamente despues de lo que estamos
+                                                editando, en este
+                                                caso el H1 */
+        font-size: 5rem;
+    }
+}
+
+h2 {
+    font-size: 3.2rem;
+    margin-top: 0;
+}
+
+@media (min-width: 768px) { 
+    h2 {
+        font-size: 4rem;
+        margin-top: 3.32rem;
+    }
+}
+
+h3 {
+    font-size: 2.4rem;
+}
+
+@media (min-width: 768px) { 
+    h3 {
+        font-size: 3rem;
+    }
+}
+
+img {
+    max-width: 100%; /* la imagen aqui se ajusta al tamaño del div (elemento padre) */
+    display: block;
+}
+
+.btn {
+    background-color: #8cbc00;
+    color: #fff;
+    text-decoration: none;
+    display: block;
+    padding: 1rem;
+    font-size: 1.6rem;
+    transition: background-color .3s ease-out;
+    text-align: center;
+    width: 100%; /* agregamos un width 100% para la pagina de CONTACTO y le agregamos un MEDIA QUERY para regresarlo en 
+    DESKTOP */
+}
+
+@media (min-width: 758px) { 
+    .btn {
+        width: auto; /* lo que nos sirve aqui es que SINGIFICA que al ponerle auto este va a respetar los paddings, margins,
+        borderd, etc... se pondra como los botones de la pagina BLOG */
+    }
+}
+
+.btn:hover {
+    background-color: #769c02;
+    cursor: pointer;
+}
+
+/* Utilidades */
+
+.textCenter {
+    text-align: center;
+}
+
+
+/* esta clase la usamos en la pagina de BLOG y CONTACTO */
+@media (min-width: 758px) { /* este nos sirve para el BTN del BLOG, lo hacemos MEDIA QUERY DESKTOP porque en MOBILE queremos
+    que abarque toda la pantalla y no tenga un max width */
+    .max-width-30 {
+        max-width: 30rem; /* a pesar de poner esta clase en el INPUT DE CONTACTO, no va a funcionar, porque los input no
+        funcionan con los MAX width y DISPLAY BLOCK, pero al hacerlo display block y asignarle un width de 100% SI */
+    }
+}
+
+/* Titulo */
+
+.tituloTienda {
+    text-align: center;
+}
+
+.tituloTienda span {
+    color: blue;
+    
+}
+
+/* Navegacion principal y hero */
+
+.marco {
+    border: 2px rgb(156, 154, 154);
+    border-top-style: solid; 
+    padding: 2rem 0;
+
+}
+
+.contenedor {
+    max-width: 120rem;
+    margin: 0 auto;
+}
+
+.navegacionPrincipal { /* aqui antes estaba lo que se tenia en el MEDIA QUERY, pero ahora para MOBILE dispositivos pequeños
+    lo ponemos que se vea tipo COLUMN y CENTRADO */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}                           /* para poder alinear los enlaces (link o "a") tengo que activar el display flex en el padre de los 
+que quiero alinear, en este caso es navegacionPrincipal, en el padre del padre no, tiene que ser el padre directamente. */
+
+@media (min-width: 768px) { /* aqui lo ajustamos a DESKTOP */ 
+    .navegacionPrincipal {
+        justify-content: space-evenly;
+        flex-direction: row;
+    }
+}
+
+.navegacionPrincipal a {
+    text-decoration: none;
+    color: black;
+    font-size: 1.6rem;
+}
+
+/* Hero */
+
+.hero { /* aqui en MOBILE, la imagen se veia demasiado grande entonces reducimos su tamaño a 25REM */
+    background-image: url(Img/principal.jpg);
+    background-size: cover;
+    background-position: center center;
+    height: 25rem;
+}
+
+@media (min-width: 768px) { /* lo dejamos igual el height a 55rem en DESKTOP */
+    .hero {
+        height: 55rem;
+    }
+}
+
+/* Categorias de Producto */
+
+.contenedor2 {
+    margin: 0 auto;
+    max-width: 120rem;
+}
+
+.textCenter {
+    text-align: center;
+}
+
+@media (min-width: 768px) { 
+    .categoriasProductoListado { /* esta clase antes no tenia MEDIA QUERY, pero para hacerlo DESKTOP lo borramos y le agregamos
+        un media query y borrando el .categoriasProductoListado anterior para que se vea en MOBILE como ROWS ya que es un
+        DIV, de igual manera pudimos crear esa clase con GRID-TEMPLATE-ROWS y escribir codigo pero nos ahorramos todo eso ya que
+        es un DIV y SOLO TENIAMOS EL GRID no los COLORES, PADDINGS, ETC */
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+        padding: 2rem 0;
+    }
+}
+.categoria { /* pusimos esto para darle un margin al MOBILE, para que no estuviera muy pegado */
+    margin-bottom: 2rem;
+}
+
+@media (min-width: 768px) { /* y aqui para no tener ese margin extra arriba de 768px */
+    .categoria{
+        margin-bottom: 0;
+    }
+}
+
+.categoria a {      /* los enlaces "a" o link son DISPLAY, para colocarlos al centro debemos utilizar un display block */
+    text-align: center;
+    display: block;
+    padding: 2rem;
+    font-size: 1.6rem;
+    text-decoration: none;
+}
+
+.categoria a:hover {
+    background-color: blue;
+    color: white;
+    border-bottom-right-radius: 1rem;
+}
+
+.categoria img { /* se creo esta clase para MOBILE, para que la imagen se ajustara al 100% del div y se centrara */
+    width: 100%;
+}
+
+/* Sobre Nosotros */
+
+.contenedorNosotros {
+    background-image: linear-gradient( to bottom, transparent 50%, #037bc0 50%, #037bc0 100%), url(Img/nosotros.jpg);
+    background-repeat: no-repeat;
+    background-position:center, top left;
+    background-size: 100%, 50rem;
+    max-height: 100%;
+}
+
+@media (min-width: 758px) { 
+    .contenedorNosotros{
+        background-image: linear-gradient( to right, transparent 50%, #037bc0 50%, #037bc0 100%), url(Img/nosotros.jpg);
+        background-repeat: no-repeat;
+        background-position:left center;
+        padding: 10rem 0;
+        background-size: 100%, 100rem;
+        max-height: 100%;
+    }
+}
+
+.contenedorTextoNosotros
+{
+    display: grid;
+    grid-template-rows: repeat(2, 1fr);
+}
+
+@media (min-width: 758px) { 
+    .contenedorTextoNosotros{
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end; /* tuvimos que crear un DIV adicional (este) porque en los FLEX y GRID, si solo hubiermos dejado el
+        .textoNosotros tomaria como si tuvieramos 2 items (h2 y p) y los distribuiria a lo largo por ser FLEX o GRID, entonces al crear 
+        UN PADRE, lo toma como 1 solo elemento y asi aparece el SOBRE NOSOTROS arriba y el P abajo, si no irian uno al lado del 
+        otro */
+    }
+}
+
+.textoNosotros {
+    color: white;
+    grid-row: 2/3;
+    padding-left: .5rem;
+    font-size: 1.4rem;
+
+}
+
+@media (min-width: 758px) { 
+    .textoNosotros {
+        flex-basis: 50%;
+        box-sizing: border-box;
+        padding-left: 10rem;
+        padding-right: 20rem;
+        color: white;
+        font-size: 1.6rem;
+    }
+}
+
+
+/* Listado de productos */
+
+.contenido-principal {
+    padding-top: 0;
+    max-width: 120rem;
+    margin: 0 auto;
+
+}
+
+@media (min-width: 768px) { /* aqui pasamos todo lo de abajo al MEDIA QUERY, al no tener de 0 a 757px se comportan como
+    DIVS normales, es por eso que no hay problema en reescribir el codigo para MOBILE */
+       
+    .listado-productos {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        /*grid-template-rows: repeat(3, 1fr); */ /* aqui pudimos tambien agregar las template rows pero luego se desajustaria
+        al tamaño a lo largo de lo que se necesita */
+        column-gap: 2rem;
+        row-gap: 2rem;
+    }
+
+    .listado-productos .producto{
+        grid-column: 1 / 7;
+        /*grid-row: 1 / 2; */
+        display: grid;
+        grid-template-columns: 3fr 1fr; /* tambien se puede usar el grid en el hijo partiendolo en 4 y asi acomodando la imagen
+        y el texto del producto 1, para esto activamos su propio display grid y asignamos el tamaño */
+    }
+
+    .listado-productos .producto2{
+        grid-column: 1 / 4;
+        /*grid-row: 2 / 3; */
+    }
+
+    .listado-productos .producto3{
+        grid-column: 4 / 7;
+        /*grid-row: 2 / 3; */
+    }
+
+    .listado-productos .producto4{
+        grid-column: 1 / 3;
+        /*grid-row: 3 / 4;*/
+    }
+
+    .listado-productos .producto5{
+        grid-column: 3 / 5;
+        /*grid-row: 3 / 4;*/
+    }
+
+    .listado-productos .producto6{
+        grid-column: 5 / 7;
+        /*grid-row: 3 / 4;*/
+    }
+}
+
+
+.producto , .producto2, .producto3{
+    background-color: #037bc0;
+    margin-bottom: 2rem; /* agregamos un margin bottom para el MOBILE porque se juntaban los productos */
+
+}
+
+@media (min-width: 758px) { 
+    .producto, .producto2, .producto3 {
+        margin-bottom: 0; /* aqui le quitamos en DESKTOP el margin porque nos agrega espacio y NO */
+    }
+}
+
+.producto5, .producto6, .producto4 {
+    margin-bottom: 0;
+    background-color: #037bc0;
+}
+
+
+.producto img {
+    height: 30rem;
+    max-width: 100%;
+    object-fit: fill; /* aqui le reducimos la altura para que se vea como las demas en MOBILE y le ponemos FILL para
+    que se vea toda la imagen */
+}
+
+@media (min-width: 758px) { 
+    .producto img {
+        height: 43rem;
+        width: 100%;
+        object-fit:cover;
+    }    
+}
+
+.producto2 img {
+    height: 30rem;
+    width: 100%;                /* a estos product img, les asignamos el OBJECT FIT PORQUE necesitabamos reducir su altura y
+    hacer que se viera mejor, para el OBJECT FIT SE NECESITABA HEIGHT Y WIDTH, si no no podria funcionar bien,
+    al product img 1, tambien se le agrego un height porque al hacerlo responsivo se hacia un cuadrado grande abajo de la 
+    imagen */
+    object-fit: cover;
+}
+
+.producto3 img {
+    height: 30rem;
+    width: 100%;
+    object-fit: cover;
+}
+
+.texto-producto {
+    text-align: center;
+    color: #fff;
+    padding: 3rem;
+    font-size: 1.6rem;
+}
+
+.texto-producto .precio {
+    font-size: 2rem;
+    font-weight: 900;
+}
+
+/* Footer */
+
+.borde-footer {
+    border-top: 1px solid #e1e1e1;
+    margin-top: 5rem;
+    
+}
+
+.site-footer {
+    text-align: center;
+}
+
+@media (min-width: 758px) { 
+    .site-footer {
+        margin-top: 5rem;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        row-gap: 2rem;
+        max-width: 120rem;
+        margin: 0 auto;
+        text-align: center;
+       
+    }
+}
+
+.bloq a {
+    display: block;
+    padding: .5rem;
+    text-decoration: none;
+}
+
+
+.copyright {
+    text-align: center;
+    font-size: 1.6rem;
+    grid-column: 2 / 3;
+}
+
+/* Pagina Nosotros */
+
+@media (min-width: 758px) { 
+    .contenido-nosotros {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        column-gap: 2rem;
+    }
+}
+.imagen-nosotros {
+    grid-column: 1/2;
+}
+
+.img-tamano {
+    height: 30rem;
+    width: 100%;
+    object-fit: cover;
+}
+
+.informacion-nosotros {
+    grid-column: 2/4;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 2rem;
+}
+
+/* Pagina Blog */
+
+@media (min-width: 758px) { 
+    .contenedor-blog {
+        display: grid;
+        grid-template-columns: 2fr 1fr; 
+        column-gap: 4rem;
+    }
+}
+.entrada {
+    border-bottom: 2px solid #e1e1e1;
+    padding-bottom: 4rem;
+    
+}
+
+.entrada:last-of-type { /* aqui como se repetia el border bottom en TODAS LAS ENTRADAS, tuvimos que decirle que al ultimo
+    tipo no se le aplicara este border botom */
+    border: none;
+}
+
+
+@media (min-width: 758px) { 
+    .escritos {
+        display: flex;
+        justify-content: space-between;
+    }
+}
+
+.escritos p {
+    font-weight: 700;
+}
+
+.escritos p span {
+    color: blue;
+    font-weight: bold;
+}
+
+/* Entrada */
+
+.contenedor-entrada {
+    width: 60rem;
+    margin: 0 auto;
+}
+
+/* Galeria */
+
+.galeria {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* aqui antes estaba 3, 1fr pero como en MOBILE se ve mejor de 2 columnas por eso
+    hicimos el cambio, abajo en el MEDIA DE DESKTOP lo ponemos como estaba */
+    gap: 2rem;
+}
+
+@media (min-width: 768px) { 
+    .galeria {
+    grid-template-columns: repeat(3, 1fr);
+}
+}
+
+.galeria img {
+    height: 20rem;
+    width: 20rem;
+    object-fit: cover;
+}
+
+@media (min-width: 768px) { 
+    .galeria img {
+        height: 40rem;
+        width: 40rem;
+        object-fit: cover;
+    }
+}
+
+/* Formulario / Contacto */
+
+.formulario {
+    max-width: 60rem;
+    margin: 0 auto;
+
+}
+
+.formulario fieldset {
+    border: 1px solid black;
+    margin-bottom: 2rem;
+}
+
+.formulario legend {
+    background-color: #005485;
+    width: 100%;
+    text-align: center;
+    color: #fff;
+    font-weight: 900;
+    padding: 1rem;
+    margin-bottom: 2rem;
+}
+
+.campo {
+    display: flex;
+    margin-bottom: 2rem;
+
+}
+
+.campo label {
+    flex-basis: 10rem;
+
+}
+
+.campo .input-texto,
+.campo .input-email,
+.campo .input-tel,
+.campo .mensaje {
+    flex: 1;
+}

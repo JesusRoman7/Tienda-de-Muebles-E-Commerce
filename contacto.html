@@ -1,0 +1,168 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-commerce Contacto</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Raleway&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1 class="tituloTienda">Tienda <span>Muebles</span></h1>
+    </header>
+    <div class="marco">
+        <div class="contenedor">
+            <nav class="navegacionPrincipal">
+                <a href="index.html" target="_blank">Inicio</a> <!-- a significa anchor o link enlace -->
+                <a href="nosotros.html" target="_blank">Nosotros</a>    
+                <a href="tienda.html">Tienda</a>    
+                <a href="blog.html">Blog</a>    
+                <a href="galeria.html">Galeria</a>    
+                <a href="contacto.html">Contacto</a>    
+            </nav>
+
+        </div>
+    </div>
+    
+
+
+    <main class="contenido-principal">
+        <h2 class="textCenter">Contacto</h2>
+
+                    <form class="formulario" action="">
+                        <fieldset>
+                            <legend>Tus Datos</legend>
+                                <div class="campo">
+                                    <label for="nombre">Nombre:</label> <!-- para las personas que estan en moviles, darle un for al label, significa
+                                    que al darle click al label nos dirigira al input para poder escribir y no estarle tratando de atinar al cuadro del input
+                                 se les tiene que asignar el nombre al for y id con el mismo valor en este caso "nombre" -->
+                                    <input class="input-texto" type="text" placeholder="Tu nombre" name="" id="nombre" required>
+                                </div>
+
+                                <div class="campo">
+                                    <label for="asunto">Asunto:</label>
+                                    <input class="input-texto" type="text" name="" id="asunto" placeholder="Tu Asunto">
+                                </div>
+<!-- hay que cambiar el tipo (text, tel, email, date, etc.) 
+tambien el placeholder nos sirve para poner algo dentro del recuadro-->
+                                <div class="campo">
+                                    <label for="email">E-mail:</label>
+                                    <input class="input-email" type="email" name="" id="email" placeholder="Tu E-mail">
+                                </div>
+
+                                <div class="campo">
+                                    <label for="telefono">Telefono:</label>
+                                    <input class="input-tel" type="tel" name="" id="telefono" placeholder="Tu Telefono">
+                                </div>
+
+                                <div class="campo">
+                                    <label for="fecha">Fecha:</label>
+                                    <input type="date" name="" id="fecha" placeholder="Ingresa la Fecha">
+                                </div>
+
+                                <div class="campo">
+                                    <label for="mensaje">Mensaje:</label>
+                                    <textarea class="mensaje" name="" id="mensaje" cols="20" rows="10"></textarea>
+                                </div>
+                        </fieldset>
+
+                        <fieldset>
+                            <legend>Pais</legend>
+
+                            <div class="campo">
+                                <label for="pais">Pais</label>
+                                <select name="" id="pais">
+                                    <option value="">Seleccione</option> <!-- el value nos sirve para JS -->
+                                    <option value="MX">Mexico</option>
+                                    <option value="AR">Argentina</option>
+                                    <option value="BR">Brazil</option>
+                                    <option value="JP">Japon</option>
+                                    <option value="FR">Francia</option>
+                                </select>
+                            </div>
+
+                        </fieldset>
+
+                        <fieldset>
+                            <legend>Informacion Extra</legend>
+
+                            <div class="campo">
+                                <label for="cliente">Cliente</label>
+                                <input type="radio" name="tipo" id="cliente" value="cliente"> <!-- si no le agregamos un "name", al seleccionar un radio 
+                                podemos seleccionar ambos, pero al ponerle name es uno u otro, no los 2 al mismo tiempo, en este
+                            caso es Cliente o Provedor -->
+                                </select>
+                            </div>
+
+                            <div class="campo">
+                                <label for="provedor">Proveedor</label>
+                                <input type="radio" name="tipo" id="provedor" value="provedor">
+                            </div>
+
+                            
+                            <div class="campo">
+                                <label for="categoria">Categoria de Interes</label>
+                                <input list="categorias" name="categorias">
+                                <datalist id="categorias">
+                                    <option value="Cocina"></option>
+                                    <option value="Exterior"></option>
+                                    <option value="Recamaras"></option>
+                                    <option value="Oficina"></option>
+                                </datalist>
+                            </div>
+                        </fieldset>
+
+                        <input class="btn max-width-30" type="submit" value="Enviar Formulario" name="" id="">
+                    </form> <!-- LOS INPUT NO RESPETAN LOS WIDTH, ir a STYLE p mas INFO -->
+
+
+
+
+    </main>
+
+
+    
+    <div class="borde-footer">
+        <footer class="site-footer">
+            <div class="foot-div1">
+                <h3>Categorias</h3>
+    
+                <nav class="bloq">
+                    <a href="">Cocina</a>
+                    <a href="">Oficina</a>
+                    <a href="">Jardin</a>
+                    <a href="">Dormitorios</a>
+                </nav>
+            </div>
+    
+            <div class="foot-div2">
+                <h3>Sobre Nosotros</h3>
+                
+                <nav class="bloq">
+                    <a href="">Nuestra Historia</a>
+                    <a href="">Mision, Vision y Valores</a>
+                    <a href="">Carreras</a>
+                    <a href="">Politica de Privacidad</a>
+                    <a href="">Terminos de Servicio</a>
+                </nav>
+            </div>
+            
+            <div class="foot-div3">
+                <h3>Soporte</h3>
+                            
+                <nav class="bloq">
+                    <a href="">Preguntas</a>
+                    <a href="">Ayuda en Linea</a>
+                    <a href="">Confianza y Seguridad</a>
+                </nav>
+            </div>
+            <p class="copyright">Todos los derechos reservados, TiendaMuebles © </p>
+        </footer>
+    </div>
+</body>
+</html>
